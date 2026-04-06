@@ -247,3 +247,9 @@
             50% { transform: scale(1.2); opacity: 0.7; }
             100% { transform: scale(1); opacity: 1; }
         }
+        /* Custom hover for the GitHub card */
+        .card[href*="github.com"]:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
