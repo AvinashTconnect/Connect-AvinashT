@@ -62,3 +62,10 @@
         }
 
         window.onload = getRandomFact;
+// Hidden greeting for developers
+console.log(
+    "%c Systems Online. Welcome, Developer. ", 
+    "color: #00d2ff; background: #05050a; font-weight: bold; font-size: 14px; border: 1px solid #00d2ff; padding: 4px;"
+);
+
+console.log("Status: Unauthorized access detected... just kidding. Enjoy the site!");
