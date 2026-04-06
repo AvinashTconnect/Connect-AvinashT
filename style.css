@@ -1,0 +1,249 @@
+/* CSS Variables for Mode Toggle */
+        :root {
+            --bg-color: #05050a;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-color: #00d2ff;
+            --grid-line: rgba(0, 210, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --status-green: #00ff88;
+            --shadow-color: rgba(0, 210, 255, 0.5);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f0f4f8;
+            --text-primary: #1a1a2e;
+            --text-secondary: #475569;
+            --accent-color: #0077ff;
+            --grid-line: rgba(0, 119, 255, 0.15);
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --status-green: #00ad5d;
+            --shadow-color: rgba(0, 119, 255, 0.2);
+        }
+
+        /* Base Body & Background Animation */
+        @keyframes scan {
+            from { background-position: 0px 0px, 0px 0px, center, center; }
+            to { background-position: 40px 40px, 40px 40px, center, center; }
+        }
+
+        body {
+            font-family: 'Segoe UI', 'SF Mono', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
+            transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+                radial-gradient(at 0% 0%, hsla(197, 100%, 49%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(280, 100%, 50%, 0.1) 0px, transparent 50%);
+            
+            background-size: 40px 40px, 40px 40px, cover, cover;
+            background-attachment: fixed; 
+            animation: scan 30s linear infinite;
+        }
+
+        /* Theme Toggle Button */
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: 'SF Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            z-index: 100;
+        }
+
+        .theme-switch:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .theme-switch:active {
+            transform: scale(0.95);
+        }
+
+        /* Profile Section */
+        .profile-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-image-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            object-fit: cover;
+            background: #0a0a12;
+            box-shadow: 0 0 30px var(--shadow-color);
+        }
+
+        .status-dot {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 14px;
+            height: 14px;
+            background-color: var(--status-green);
+            border-radius: 50%;
+            border: 3px solid var(--bg-color);
+            box-shadow: 0 0 15px var(--status-green);
+            animation: pulse 2s infinite;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px var(--shadow-color);
+        }
+
+        .username {
+            color: var(--accent-color);
+            font-size: 12px;
+            margin-top: 8px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .bio-grid {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .bio-item {
+            background: var(--card-bg);
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .bio-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* Links */
+        .links-container {
+            width: 100%;
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--grid-line);
+            padding: 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--text-primary);
+            text-align: center;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            transform: scale(1.03);
+            box-shadow: 0 0 20px var(--shadow-color);
+            color: var(--accent-color);
+        }
+
+        .card:active {
+            transform: scale(0.98);
+        }
+
+        /* Math Fact Terminal Section */
+        .math-fact-container {
+            margin-top: 50px;
+            padding: 15px;
+            width: 100%;
+            max-width: 340px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--grid-line);
+        }
+
+        .math-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .refresh-btn {
+            cursor: pointer;
+            text-decoration: underline;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .refresh-btn:hover {
+            opacity: 1;
+        }
+
+        .math-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-family: 'Courier New', monospace;
+            min-height: 2.4em;
+            text-shadow: 0 0 5px var(--shadow-color);
+            transition: opacity 0.25s ease;
+        }
+
+        .math-text::after {
+            content: "_";
+            animation: cursor-blink 1s infinite;
+            color: var(--accent-color);
+        }
+
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
